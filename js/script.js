@@ -42,4 +42,16 @@ person5.name = "John";
 person5.age = 23;
 person5.city = "CA";
 
-button.addEventListener('click', function(){person5.printPerson()});
+var PeopleDynamicProto = function(name, age, state){
+  temp.age = age;
+  temp.name = name;
+  temp.state = state;
+
+  if (typeof this.printPerson !== 'function') {
+    PeopleDynamicProto.prototype.printPerson = function(){
+        console.log(this.name + ", " + this.age + ", " + this.state);
+    };
+  }
+};
+var person6 = new PeopleDynamicProto('John', 23, 'CA');
+button.addEventListener('click', function(){person6.printPerson()});
