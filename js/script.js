@@ -28,5 +28,18 @@ var PeopleConstuctor = function(name, age, state){
 var person1 = new PeopleConstuctor('John', 23, 'CA');
 var person2 = new PeopleConstuctor('Kim', 27, 'SC');
 
+var PeopleProto = function(){
+}
+PeopleProto.prototype.age = 0;
+PeopleProto.prototype.name = "no name";
+PeopleProto.prototype.city = "no city";
 
-button.addEventListener('click', function(){person1.printPerson()});
+PeopleProto.prototype.printPerson = function(){
+  console.log(this.name + ", " + this.age + ", " + this.city);
+}
+var person5 = new PeopleProto();
+person5.name = "John";
+person5.age = 23;
+person5.city = "CA";
+
+button.addEventListener('click', function(){person5.printPerson()});
